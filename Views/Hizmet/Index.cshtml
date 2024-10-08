@@ -1,0 +1,37 @@
+﻿@model IEnumerable<YonetimPaneli.Models.Hizmet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<h2>HİZMETLER</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>BAŞLIK</th>
+            <th>ACIKLAMA</th>
+            <th>RESİM URL</th>
+            <th>İŞLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.HizmetId</td>
+                <td>@item.Baslik</td>
+                <td>@item.Aciklama</td>
+                <td><img width="100" height="100" src="@item.ResimUrl" /></td>
+                <td>
+                    <a  class ="btn btn-light"href="/Hizmet/Edit/@item.HizmetId">DÜZENLE</a> |
+                    <a class="btn btn-danger" href="/Hizmet/Delete/@item.HizmetId">SİL</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-success" href="/Hizmet/Create/">Yeni Ekle</a>

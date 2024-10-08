@@ -1,0 +1,47 @@
+﻿@model IEnumerable<YonetimPaneli.Models.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimUrl)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResimUrl)
+            </td>
+            <td>
+                @Html.ActionLink("Guncelle", "Edit", new { id = item.KategoriId }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Detaylari goruntule", "Details", new { id = item.KategoriId }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.KategoriId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Yeni Kategori", "Create", null, new { @class = "btn btn-success" })
+</p>

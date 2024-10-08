@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Hizmet Ekle</h2>
+
+<div class="form">
+    <!-- Multi Columns Form -->
+    <form class="form-validate form-horizontal" id="feedback_form" method="post" action="/Hizmet/Create" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Baslik" class="form-label">BAŞLIK</label>
+            <input class="form-control" id="Baslik" name="Baslik" minlength="5" type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Aciklama" class="form-label">AÇIKLAMA</label>
+            <textarea id="Aciklama" name="Aciklama" class="form-control ckeditor" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="ResimUrl" class="form-label">RESİM URL</label>
+            <input type="file" class="form-control" id="ResimUrl" name="ResimUrl" accept=".jpg,.png,.jpeg" required>
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary" style="margin-top : 5px">KAYDET</button>
+            <button type="reset" class="btn btn-info" style="margin-top : 5px"> <a href="/Hizmet/Index"> GERİ DÖN</a> </button>
+        </div>
+    </form>
+</div>
